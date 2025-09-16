@@ -1,11 +1,11 @@
-# Working with USB webcams on your Raspberry Pi
+# USB Camera
 
 
 ---
 ## Working with USB webcams on your Raspberry Pi
-https://raspberrypi-guide.github.io/electronics/using-usb-webcams
+* https://raspberrypi-guide.github.io/electronics/using-usb-webcams
 
-
+---
 ### Setting up and using a USB webcam
 
 You can control a USB webcam both using bash in the terminal and with Python. First plugin the camera and see if the Raspberry Pi recognises it by entering lsusb in the terminal. It should show something like this:
@@ -54,7 +54,11 @@ while True:
 	if k != -1:
 		break
 cv2.imwrite('/home/pi/testimage.jpg', image)
+cam.release()
+cv2.destroyAllWindows()
 ```
+
+There are many other options available with opencv. I suggest to read the documentation at opencv.org.
 
 ---
 ### Setting up multiple USB webcams
@@ -73,6 +77,3 @@ fswebcam --device /dev/video1 image.jpg
 And with Python and OpenCV you can just set cv2.VideoCapture to 1.
 
 
-
-cam.release()
-cv2.destroyAllWindows()There are many other options available with opencv. I suggest to read the documentation at opencv.org.
